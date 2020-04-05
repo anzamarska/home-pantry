@@ -2,51 +2,57 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './ListItem.module.scss'
 
-
+const initialStuff = [ {
+      name: "pasta",
+      amount: 6,
+      minNum: 6,
+  },
+  {
+      name: "tomatoes",
+      amount: 4,
+      minNum: 6,
+  },
+  {
+      name: "rice",
+      amount: 7,
+      minNum: 4,
+  },
+  {
+    name: "cottage chees",
+    amount: 6,
+    minNum: 2,
+},
+    {
+        name: "eggs",
+        amount: 4,
+        minNum: 10,
+    },
+    {
+        name: "bananas",
+        amount: 7,
+        minNum: 4,
+    },
+    ];
 
 const ListItem = ({
     name,
-    amount
-    }) => {
-        
-
-        function subAmount() {
-            alert('Hello');
-        }
-        
-        function addAmount() {
-            {amount} + 1;
-        }
-        
-        function confirmDelete (key) {
-            let agreement = window.confirm('Do you want to delete this item?')
-               ? null
-            //    removeItem 
-               : null};
-        
-        // const removeItem = (key) => {
-        // const newState = this.state.products.filter(
-        //     (item) => {
-        //         return item[0] !== key;
-        //     }
-        // )};
-        
-        // this.setState({
-        //     products: newState,
-        // });
-                
-       return (
+    amount,
+    onAddAmount,
+    onSubAmount
+    }) => (
         <>
             <li className={style.wrapper}>
                 <p className={style.name}>{name}</p>
-                <button className={style.buttonDown} onClick={subAmount}>-1</button>
+                <button className={style.buttonDown} onClick={(e) => onSubAmount(name)}>-1</button>
                 <p className={style.number}>{amount}</p>
-                <button className={style.buttonUp}onClick={addAmount}>+1</button>
-                <button className={style.button} onClick={confirmDelete}>delete</button>
+                <button className={style.buttonUp}onClick={(e) => onAddAmount(name)}>+1</button>
+                <button className={style.button}
+                //  onClick={confirmDelete}
+                 >delete</button>
             </li>
             
         </>
-)};
+);
 
 ListItem.propTypes = {
     name: PropTypes.string.isRequired,

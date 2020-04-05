@@ -7,7 +7,7 @@ const ListWrapper = (props) => (
     <div className={style.wrapper}>
         <Title>home eating stuff</Title>
         <ul className={style.ul}>  
-            {props.items.map(item => (<ListItem key={item.name} {...item} />
+            {props.items.map(item => (<ListItem key={item.name} onAddAmount={props.onAddAmount} onSubAmount={props.onSubAmount} {...item} />
             ))}
         </ul>
     </div>

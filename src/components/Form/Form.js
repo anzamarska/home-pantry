@@ -34,6 +34,7 @@ const Form = ({ submitFn }) => (
         name="amount"
         // label="Amount"
         label="how many you wanna add?"
+        type="number"
       />
       <Button>add new item</Button>
     </form>

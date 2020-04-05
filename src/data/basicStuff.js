@@ -1,7 +1,7 @@
 const initialStateItems = [
     {
       name: "eggs",
-      number: "10",
+      number: "19990",
     },
     {
         name: "pear",
