@@ -38,17 +38,16 @@ const ListItem = ({
     name,
     amount,
     onAddAmount,
-    onSubAmount
+    onSubAmount,
+    onConfirmDelete
     }) => (
         <>
             <li className={style.wrapper}>
                 <p className={style.name}>{name}</p>
-                <button className={style.buttonDown} onClick={(e) => onSubAmount(name)}>-1</button>
+                <button className={style.buttonDown} onClick={() => onSubAmount(name)}>-1</button>
                 <p className={style.number}>{amount}</p>
-                <button className={style.buttonUp}onClick={(e) => onAddAmount(name)}>+1</button>
-                <button className={style.button}
-                //  onClick={confirmDelete}
-                 >delete</button>
+                <button className={style.buttonUp}onClick={() => onAddAmount(name)}>+1</button>
+                <button className={style.button} onClick={() => onConfirmDelete(name)}>delete</button>
             </li>
             
         </>

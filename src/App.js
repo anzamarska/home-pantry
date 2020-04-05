@@ -67,22 +67,12 @@ addAmount = (name) => {
     this.setState({items: this.state.items.map(item => item.name === name ? {...item, amount: item.amount + 1} : item)});
 }
 
-// confirmDelete = (key) => {
-//     let agreement = window.confirm('Do you want to delete this item?')
-//        ? null
-//        removeItem 
-//        : null};
-
-// const removeItem = (key) => {
-// const newState = this.state.products.filter(
-//     (item) => {
-//         return item[0] !== key;
-//     }
-// )};
-
-// this.setState({
-//     products: newState,
-// });
+onConfirmDelete = (name) => {
+    this.setState({items: this.state.items.filter(
+        (item) => {
+            return item.name !== name;
+        })})
+    }
         
 
   render() {
@@ -94,6 +84,7 @@ addAmount = (name) => {
             items={this.state.items}
             onAddAmount={this.addAmount}
             onSubAmount={this.subAmount}
+            onConfirmDelete={this.onConfirmDelete}
             /> 
             <Form submitFn={
               this.addItem
