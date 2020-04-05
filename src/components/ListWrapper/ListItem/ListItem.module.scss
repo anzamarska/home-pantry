@@ -1,0 +1,80 @@
+@keyframes appear{
+    0%{
+        opacity: 0;
+        top: 35px;
+    }
+    100%{
+        opacity: 1;
+        top: 0;
+    }
+}
+
+.wrapper {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding: 10px 0;
+    font-weight: 100;
+    display: flex;
+    animation: appear 1s ease;
+}
+
+.wrapper > * {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    font-weight: 400;
+}
+
+.name {
+    width: 60em;
+    text-align: left;
+    text-transform: lowercase;
+}
+
+.number{
+    width: 20em;
+    font-weight: 400;
+}
+
+.button, .buttonDown{
+    width: 10em;
+    background: none;
+    border: 2px solid brown;
+    color: brown;
+    margin-left: 5px;
+}
+
+.buttonUp{
+    width: 10em;
+    background: none;
+    border: 2px solid green;
+    color: green;
+    margin-left: 5px;
+}
+
+/* 
+.plates label {
+flex: 1;
+cursor: pointer;
+}
+
+.plates input {
+display: none;
+}
+
+.plates input + label:before {
+content: '⬜️';
+margin-right: 10px;
+}
+
+.plates input:checked + label:before {
+content: '🌮';
+}
+
+.add-items {
+margin-top: 20px;
+}
+
+.add-items input {
+padding: 10px;
+outline: 0;
+border: 1px solid rgba(0,0,0,0.1);
+} */
