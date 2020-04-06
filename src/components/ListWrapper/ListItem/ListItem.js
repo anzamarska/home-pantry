@@ -47,7 +47,7 @@ const ListItem = ({
                 <button className={style.buttonDown} onClick={() => onSubAmount(name)}>-1</button>
                 <p className={style.number}>{amount}</p>
                 <button className={style.buttonUp}onClick={() => onAddAmount(name)}>+1</button>
-                <button className={style.button} onClick={() => onConfirmDelete(name)}>delete</button>
+                <button className={style.buttonDelete} onClick={() => onConfirmDelete(name)}>delete</button>
             </li>
             
         </>

@@ -68,10 +68,14 @@ addAmount = (name) => {
 }
 
 onConfirmDelete = (name) => {
+    let confirmation = window.confirm("Are you sure you want to remove this product from your list?");
+
+    if (confirmation === true){ 
     this.setState({items: this.state.items.filter(
         (item) => {
             return item.name !== name;
-        })})
+        })}) 
+    }
     }
         
 
