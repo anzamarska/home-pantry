@@ -1,7 +1,12 @@
 import React from 'react';
+import Form from '../../components/Form/Form';
+
 
 const AddStuffView = () => (
-    <p>This is add stuf viwe</p>
+    <Form submitFn={
+        this.addItem
+      }/>
+    // <p>add stuf view</p>
 );
 
 export default AddStuffView;

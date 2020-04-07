@@ -36,6 +36,12 @@ const Form = ({ submitFn }) => (
         label="how many you wanna add?"
         type="number"
       />
+      <Input
+        name="minNum"
+        // label="minNum"
+        label="how much of this product you would like to have in home?"
+        type="number"
+      />
       <Button>add new item</Button>
     </form>
   </div>

@@ -32,6 +32,11 @@
 .number{
     width: 20em;
     font-weight: 400;
+
+    &Bold {
+        font-weight: 700;
+        width: 20em;
+    }
 }
 
 .buttonDelete, .buttonDown{

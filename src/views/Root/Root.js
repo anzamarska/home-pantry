@@ -2,15 +2,16 @@ import React from 'react';
 import './index.css';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import ListWrapper from '../../components/ListWrapper/ListWrapper';
-import Form from '../../components/Form/Form';
-
 import AddStuffView from '../AddStuff/AddStuff';
 import NotesView from '../Notes/Notes';
 import ShoppingListView from '../ShoppingList/ShoppingList';
 import Header from '../../components/Header/Header'
+import Form from '../../components/Form/Form';
+import HomePageView from '../HomePage/HomePage';
 
 
-const initialStuff = [ {
+const initialStuff = [ 
+{
       name: "pasta",
       amount: 6,
       minNum: 6,
@@ -29,7 +30,7 @@ const initialStuff = [ {
     name: "cottage chees",
     amount: 6,
     minNum: 2,
-},
+    },
     {
         name: "eggs",
         amount: 4,
@@ -61,7 +62,6 @@ class Root extends React.Component {
 
       e.target.reset();
   }
-
 
 subAmount = (name) => {
     this.setState({items: this.state.items.map(item => item.name === name ? {...item, amount: item.amount - 1} : item)});
@@ -97,10 +97,11 @@ onConfirmDelete = (name) => {
             onSubAmount={this.subAmount}
             onConfirmDelete={this.onConfirmDelete}
             /> 
-            <Form submitFn={
-              this.addItem
-            }/>
-            <Switch>
+            <Form 
+            submitFn={this.addItem}
+            />
+        <Switch>
+            <Route exact path="/" component={HomePageView} />
             <Route exact path="/addStuff" component={AddStuffView} />
             <Route exact path="/shoppingList" component={ShoppingListView} />
             <Route exact path="/notes" component={NotesView} />
