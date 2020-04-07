@@ -1,0 +1,29 @@
+.navigationItem{
+    display: inline-block;
+    margin-right: 50px;
+    list-style:none;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 0 0 8px rgba(0,0,0,0.1);
+    padding:10px;
+    
+    &Link {
+        text-decoration: none;
+        text-transform: lowercase;
+        text-align: center;
+        font-weight: 700;
+        color: black;
+        font-size: 20px;
+
+        &Active {
+            color: red;
+        }
+        }
+        
+        
+    &:hover{
+        text-shadow: rgb(102, 101, 101) 0 4px 8px;
+        }
+
+        
+    
+}

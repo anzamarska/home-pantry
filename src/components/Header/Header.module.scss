@@ -1,0 +1,14 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px 30px;
+
+}
+
+.logo{
+    width: 110px;
+    height: 110px;
+    padding-right: 10px;
+    }

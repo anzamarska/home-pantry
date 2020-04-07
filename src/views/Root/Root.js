@@ -1,7 +1,14 @@
 import React from 'react';
 import './index.css';
-import ListWrapper from './components/ListWrapper/ListWrapper';
-import Form from './components/Form/Form';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import ListWrapper from '../../components/ListWrapper/ListWrapper';
+import Form from '../../components/Form/Form';
+
+import AddStuffView from '../AddStuff/AddStuff';
+import NotesView from '../Notes/Notes';
+import ShoppingListView from '../ShoppingList/ShoppingList';
+import Header from '../../components/Header/Header'
+
 
 const initialStuff = [ {
       name: "pasta",
@@ -35,9 +42,7 @@ const initialStuff = [ {
     },
     ];
  
-class App extends React.Component {
-
-
+class Root extends React.Component {
 
   state = {
       items: [...initialStuff],
@@ -83,7 +88,9 @@ onConfirmDelete = (name) => {
       console.log(this.state.items);
       return (
 
-          <div>
+          <BrowserRouter>
+          <>
+            <Header/>
             <ListWrapper 
             items={this.state.items}
             onAddAmount={this.addAmount}
@@ -92,11 +99,17 @@ onConfirmDelete = (name) => {
             /> 
             <Form submitFn={
               this.addItem
-            }
-          /> 
-          </div >
+            }/>
+            <Switch>
+            <Route exact path="/addStuff" component={AddStuffView} />
+            <Route exact path="/shoppingList" component={ShoppingListView} />
+            <Route exact path="/notes" component={NotesView} />
+            </Switch>
+          </>
+          
+          </BrowserRouter >
       )
   }
 
 }
-export default App;
+export default Root;
