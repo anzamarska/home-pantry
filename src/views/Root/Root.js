@@ -8,6 +8,7 @@ import ShoppingListView from '../ShoppingList/ShoppingList';
 import Header from '../../components/Header/Header'
 import Form from '../../components/Form/Form';
 import HomePageView from '../HomePage/HomePage';
+import ShoppingList from '../../components/ShoppingList/ShoppingListWrapper';
 
 
 const initialStuff = [ 
@@ -42,26 +43,51 @@ const initialStuff = [
         minNum: 4,
     },
     ];
+
+const initialShopItems = [
+    {
+        name: "Oranges",
+        desireAmount: 5,
+
+    }
+]
  
 class Root extends React.Component {
 
   state = {
       items: [...initialStuff],
+      shopItems: [...initialShopItems],
   }
 
-  addItem = (e) => {
-      e.preventDefault();
+addItem = (e) => {
+    e.preventDefault();
 
-      const newItem = {
-          name: e.target[0].value,
-          amount: Number(e.target[1].value),
-      }
-      this.setState(prevState => ({
-          items: [...prevState.items, newItem],
-      }));
+    const newItem = {
+        name: e.target[0].value,
+        amount: Number(e.target[1].value),
+        minNum: Number(e.target[2].value),
+    }
+    this.setState(prevState => ({
+        items: [...prevState.items, newItem],
+    }));
 
-      e.target.reset();
-  }
+    e.target.reset();
+}
+
+addShopItem = (e) => {
+    // e.preventDefault();
+
+    const newShopItem ={
+        name: "Tomatoes",
+        desireAmount: 1,
+    }
+
+    this.setState(prevState => ({
+        shopItems: [...prevState.shopItems, newShopItem],
+    }));
+
+    console.log(initialShopItems);
+}
 
 subAmount = (name) => {
     this.setState({items: this.state.items.map(item => item.name === name ? {...item, amount: item.amount - 1} : item)});
@@ -82,7 +108,6 @@ onConfirmDelete = (name) => {
         })}) 
     }
     }
-        
 
   render() {
       console.log(this.state.items);
@@ -96,13 +121,14 @@ onConfirmDelete = (name) => {
             onAddAmount={this.addAmount}
             onSubAmount={this.subAmount}
             onConfirmDelete={this.onConfirmDelete}
+            onAddShopItem={this.addShopItem}
             /> 
-            <Form 
-            submitFn={this.addItem}
+            <ShoppingList 
+            shopItems={this.state.shopItems}
             />
         <Switch>
             <Route exact path="/" component={HomePageView} />
-            <Route exact path="/addStuff" component={AddStuffView} />
+            <Route exact path="/addStuff" component={() => <AddStuffView addItem={this.addItem} />} />
             <Route exact path="/shoppingList" component={ShoppingListView} />
             <Route exact path="/notes" component={NotesView} />
             </Switch>

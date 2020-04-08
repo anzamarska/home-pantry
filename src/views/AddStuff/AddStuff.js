@@ -2,11 +2,10 @@ import React from 'react';
 import Form from '../../components/Form/Form';
 
 
-const AddStuffView = () => (
+const AddStuffView = (props) => (
     <Form submitFn={
-        this.addItem
+        props.addItem
       }/>
-    // <p>add stuf view</p>
 );
 
 export default AddStuffView;
