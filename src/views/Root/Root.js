@@ -74,20 +74,24 @@ addItem = (e) => {
     e.target.reset();
 }
 
-addShopItem = (e) => {
-    // e.preventDefault();
-
-    const newShopItem ={
-        name: "Tomatoes",
-        desireAmount: 1,
-    }
-
-    this.setState(prevState => ({
-        shopItems: [...prevState.shopItems, newShopItem],
-    }));
-
-    console.log(initialShopItems);
+addShopItem = () => {
+    this.setState(
+      (state, props) => {
+        const filteredList = state.items.filter(item => item.amount - item.minNum === 0);
+        const newShopItems = filteredList.map(item => ({name: item.name, desireAmount: 1}))
+        return {shopItems: [...state.shopItems, ...newShopItems]}
+      })
 }
+
+// addShopItem = () => {
+//     this.setState(
+//       (state, props) => {
+//         const filteredList = state.items.filter(item => item.amount - item.minNum === 0);
+//         const newShopItems = filteredList.map(item => ({name: item.name, desireAmount: 1}));
+//         const uniqItem = newShopItems.filter(item => state.shopItems(showItems => showItems.name !== item.name));
+//         return {shopItems: [...state.shopItems, ...uniqItem]}
+//       })
+// }
 
 subAmount = (name) => {
     this.setState({items: this.state.items.map(item => item.name === name ? {...item, amount: item.amount - 1} : item)});

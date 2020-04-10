@@ -16,7 +16,7 @@ const ListItem = ({
         <>
             <li className={style.wrapper}>
                 <p className={style.name}>{name}</p>
-                <button className={style.buttonDown} onClick={() => {onSubAmount(name); onAddShopItem(name) }}>-1</button>
+                <button className={style.buttonDown} onClick={() => {onSubAmount(name); onAddShopItem(amount, minNum) }}>-1</button>
                 <p className={style.numberBold}>{amount}</p>
                 <p>/</p>
                 <p className={style.number}>{minNum}</p>
