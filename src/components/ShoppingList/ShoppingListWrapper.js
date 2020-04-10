@@ -9,7 +9,11 @@ const ShoppingList = (props) => (
     <div className={style.wrapper}>
         <Title>shopping list</Title>
         <ul className={style.ul}>
-            {props.shopItems.map(shopItem => (<ShoppingItem key={shopItem.name} {...shopItem} />
+            {props.shopItems.map(shopItem => (
+            <ShoppingItem 
+            key={shopItem.name} 
+            boughtItem={props.boughtItem}
+            {...shopItem} />
             ))}
         </ul>
     </div>

@@ -20,8 +20,8 @@ const ListItem = ({
                 <p className={style.numberBold}>{amount}</p>
                 <p>/</p>
                 <p className={style.number}>{minNum}</p>
-                <button className={style.buttonUp} onClick={() => onAddAmount(name)}>+1</button>
-                <button className={style.buttonDelete} onClick={() => onConfirmDelete(name)}>delete</button>
+                <button className={style.buttonUp} onClick={() => {onAddAmount(name); onAddShopItem(amount, minNum) }}>+1</button>
+                <button className={style.buttonDelete} onClick={() => {onConfirmDelete(name); onAddShopItem(amount, minNum) }}>delete</button>
             </li>
             
         </>

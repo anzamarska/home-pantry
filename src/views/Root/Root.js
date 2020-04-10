@@ -44,13 +44,7 @@ const initialStuff = [
     },
     ];
 
-const initialShopItems = [
-    {
-        name: "Oranges",
-        desireAmount: 5,
-
-    }
-]
+const initialShopItems = []
  
 class Root extends React.Component {
 
@@ -77,21 +71,11 @@ addItem = (e) => {
 addShopItem = () => {
     this.setState(
       (state, props) => {
-        const filteredList = state.items.filter(item => item.amount - item.minNum === 0);
-        const newShopItems = filteredList.map(item => ({name: item.name, desireAmount: 1}))
-        return {shopItems: [...state.shopItems, ...newShopItems]}
+        const filteredList = state.items.filter(item => item.amount - item.minNum < 0);
+        const newShopItems = filteredList.map(item => ({name: item.name, desireAmount: item.minNum - item.amount}))
+        return {shopItems: newShopItems}
       })
 }
-
-// addShopItem = () => {
-//     this.setState(
-//       (state, props) => {
-//         const filteredList = state.items.filter(item => item.amount - item.minNum === 0);
-//         const newShopItems = filteredList.map(item => ({name: item.name, desireAmount: 1}));
-//         const uniqItem = newShopItems.filter(item => state.shopItems(showItems => showItems.name !== item.name));
-//         return {shopItems: [...state.shopItems, ...uniqItem]}
-//       })
-// }
 
 subAmount = (name) => {
     this.setState({items: this.state.items.map(item => item.name === name ? {...item, amount: item.amount - 1} : item)});
@@ -110,8 +94,16 @@ onConfirmDelete = (name) => {
         (item) => {
             return item.name !== name;
         })}) 
+        }
     }
-    }
+
+boughtItem = (name) => {
+    this.setState({shopItems: this.state.shopItems.filter(
+        (item) => {
+            return item.name !== name;
+        })}) 
+    this.setState({items: this.state.items.map(item => item.name === name ? {...item, amount: item.minNum} : item)});
+}
 
   render() {
       console.log(this.state.items);
@@ -129,6 +121,7 @@ onConfirmDelete = (name) => {
             /> 
             <ShoppingList 
             shopItems={this.state.shopItems}
+            boughtItem={this.boughtItem}
             />
         <Switch>
             <Route exact path="/" component={HomePageView} />
