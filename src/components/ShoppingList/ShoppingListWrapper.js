@@ -8,6 +8,8 @@ import ShoppingItem from './ShoppingItem';
 const ShoppingList = (props) => (
     <div className={style.wrapper}>
         <Title>shopping list</Title>
+        { props.shopItems.lenght > 0 ? (
+            
         <ul className={style.ul}>
             {props.shopItems.map(shopItem => (
             <ShoppingItem 
@@ -16,6 +18,10 @@ const ShoppingList = (props) => (
             {...shopItem} />
             ))}
         </ul>
+        ) : (
+            <p>you haven't got any products.</p>
+
+        ) }
     </div>
 );
 

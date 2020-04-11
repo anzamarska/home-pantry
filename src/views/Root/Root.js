@@ -14,31 +14,37 @@ import ShoppingList from '../../components/ShoppingList/ShoppingListWrapper';
 const initialStuff = [ 
 {
       name: "pasta",
+      category: "grain",
       amount: 6,
       minNum: 6,
   },
   {
       name: "tomatoes",
+      category: "vegetables",
       amount: 4,
       minNum: 6,
   },
   {
       name: "rice",
+      category: "grain",
       amount: 7,
       minNum: 4,
   },
   {
     name: "cottage chees",
+    category: "milk",
     amount: 6,
     minNum: 2,
     },
     {
         name: "eggs",
+        category: "milk",
         amount: 4,
         minNum: 10,
     },
     {
         name: "bananas",
+        category: "fruits",
         amount: 7,
         minNum: 4,
     },
@@ -125,7 +131,7 @@ boughtItem = (name) => {
             />
         <Switch>
             <Route exact path="/" component={HomePageView} />
-            <Route exact path="/addStuff" component={() => <AddStuffView addItem={this.addItem} />} />
+            <Route exact path="/addStuff" component={() => <AddStuffView addItem={this.addItem} onAddShopItem={this.addShopItem}/>} />
             <Route exact path="/shoppingList" component={ShoppingListView} />
             <Route exact path="/notes" component={NotesView} />
             </Switch>

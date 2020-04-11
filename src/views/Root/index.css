@@ -2,8 +2,9 @@
 
 html {
   box-sizing: border-box;
-  background: url('https://cdn.pixabay.com/photo/2015/03/26/09/42/breakfast-690128_960_720.jpg') center no-repeat;
-  background-size: cover;
+  /* background: url('https://cdn.pixabay.com/photo/2015/03/26/09/42/breakfast-690128_960_720.jpg') center no-repeat; */
+  background-image: url(../../assets/images/background.png);
+  background-size: contain;
   min-height: 100vh;
   display: flex;
   justify-content: center;

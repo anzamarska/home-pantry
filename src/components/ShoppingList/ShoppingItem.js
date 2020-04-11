@@ -1,6 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import style from './ShoppingItem.module.scss'
+import style from './ShoppingItem.module.scss';
+import Imput from '../Input/Input'
 
 const ShoppingItem = ({
     name,
@@ -14,6 +15,13 @@ const ShoppingItem = ({
                     <>
                 <p className={style.name}>{name}</p>
                 <p className={style.name}>{desireAmount}</p>
+                <input
+                    className={style.input}
+                    name="amount"
+                    placeholder="how many you bought?"
+                    type="number"
+                    onChange={(e) => boughtItem(e)}
+                 />
                 <button className={style.buttonBought} onClick={() => boughtItem(name)}>bought</button>
                     </>
                 }
