@@ -21,13 +21,13 @@ const initialStuff = [
   {
       name: "tomatoes",
       category: "vegetables",
-      amount: 4,
+      amount: 14,
       minNum: 6,
   },
   {
       name: "rice",
       category: "grain",
-      amount: 7,
+      amount: 1,
       minNum: 4,
   },
   {
@@ -39,7 +39,7 @@ const initialStuff = [
     {
         name: "eggs",
         category: "milk",
-        amount: 4,
+        amount: 5,
         minNum: 10,
     },
     {
