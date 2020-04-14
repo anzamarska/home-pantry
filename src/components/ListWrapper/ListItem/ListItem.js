@@ -11,10 +11,15 @@ const ListItem = ({
     onConfirmDelete,
     onAddShopItem
     }) => {
-    console.log(amount, minNum);
     return (
         <>
             <li className={style.wrapper}>
+                {/* <span> */}
+                <img 
+                className={style.categoryImg} 
+                url='../../../assets/images/categoryIcon/sweets.png' alt=""/>
+                {/* </span> */}
+                {/* <img className={styles.categoryImg} src={src} alt=""/> */}
                 <p className={style.name}>{name}</p>
                 <button className={style.buttonDown} onClick={() => {onSubAmount(name); onAddShopItem(amount, minNum) }}>-1</button>
                 <p className={style.numberBold}>{amount}</p>

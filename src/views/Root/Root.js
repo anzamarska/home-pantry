@@ -50,6 +50,22 @@ const initialStuff = [
     },
     ];
 
+// const categories = [
+//         {
+//           name: 'fruits',
+//           src: apple
+//         },
+//         {
+//           name: 'sweet',
+//           src: pie
+//         },
+//         {
+//           name: 'milk',
+//           src: jug
+//         }
+//       ];
+  
+
 const initialShopItems = []
  
 class Root extends React.Component {
@@ -101,7 +117,11 @@ onConfirmDelete = (name) => {
             return item.name !== name;
         })}) 
         }
-    }
+}
+
+addCategory = (name) => {
+
+}
 
 boughtItem = (name) => {
     this.setState({shopItems: this.state.shopItems.filter(
