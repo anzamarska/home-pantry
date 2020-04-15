@@ -27,6 +27,7 @@
     width: 60em;
     text-align: left;
     text-transform: lowercase;
+    line-height: 40px;
 }
 
 .number{
@@ -61,13 +62,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
-    background: rgba(#fff, 0.8);
-    border-radius: 50%;
-    padding: 10px;
-    margin-right: 10px;
-    max-width: 40px;
+    width: 40px;
+    height: 40px;
+    margin-right: 25px;
 }
 
 /* 

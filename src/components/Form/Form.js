@@ -17,8 +17,9 @@ import Input from "../Input/Input";
 import Button from '../Button/Button';
 import Title from '../Title/Title';
 
-const Form = ({ submitFn } ) => (
+const Form = ({ submitFn, closeModalFn } ) => (
   <div className={styles.wrapper}>
+    <button className={styles.button} onClick={closeModalFn}>close</button>
     <Title>new stuff in home</Title>
     <form 
     autoComplete="off"  
@@ -38,6 +39,50 @@ const Form = ({ submitFn } ) => (
         label="how much of this product you would like to have in home?"
         type="number"
       />
+      <Input
+        name="category.icon"
+        label="category?"
+        type="text"
+      />
+      <Input
+        name="category.name"
+        label="category?"
+        type="text"
+      />
+  
+      {/* <form>
+        <div className="radio">
+          <label>
+            <input type="radio" name="category" value="option1" />
+            fruits
+          </label>
+        </div>
+        <div className="radio">
+          <label>
+            <input type="radio" name="category" value="option2" />
+            vegetables
+          </label>
+        </div>
+        <div className="radio">
+          <label>
+            <input type="radio" name="category" value="option3" />
+            meat
+          </label>
+        </div>
+        <div className="radio">
+          <label>
+            <input type="radio" name="category" value="option4" />
+            sweets
+          </label>
+        </div>
+        <div className="radio">
+          <label>
+            <input type="radio" name="category" value="option5" />
+            eggs
+          </label>
+        </div>
+      </form>
+         */}
       <Button 
       // addShopItem={props.addShopItem}
       >add new item</Button>

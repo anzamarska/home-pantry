@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './ListItem.module.scss'
+import sweets from '../../../assets/images/categoryIcon/sweets.png'
+import meat from '../../../assets/images/categoryIcon/meat.png'
+import fruits from '../../../assets/images/categoryIcon/fruits.png'
+import vegetables from '../../../assets/images/categoryIcon/vegetables.png'
 
 const ListItem = ({
     name,
+    category,
     amount,
     minNum,
     onAddAmount,
@@ -14,12 +19,13 @@ const ListItem = ({
     return (
         <>
             <li className={style.wrapper}>
-                {/* <span> */}
+                <span>
                 <img 
                 className={style.categoryImg} 
-                url='../../../assets/images/categoryIcon/sweets.png' alt=""/>
-                {/* </span> */}
-                {/* <img className={styles.categoryImg} src={src} alt=""/> */}
+                src={category.icon} 
+                alt={category.name}
+                />
+                </span>
                 <p className={style.name}>{name}</p>
                 <button className={style.buttonDown} onClick={() => {onSubAmount(name); onAddShopItem(amount, minNum) }}>-1</button>
                 <p className={style.numberBold}>{amount}</p>
