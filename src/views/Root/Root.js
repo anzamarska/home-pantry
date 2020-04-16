@@ -19,12 +19,12 @@ import vegetables from '../../assets/images/categoryIcon/vegetables.png'
 const initialStuff = [ 
     {
     name: "chocolates",
-    category: {name: "sweets", icon: sweets},
+    category: sweets,
     amount: 6,
     minNum: 6,
     },
     {
-    name: "tomatoes",
+    name: "potatoes",
     category: {name: "vegetables", icon: vegetables},
     amount: 14,
     minNum: 6,
@@ -89,11 +89,15 @@ class Root extends React.Component {
 
 addItem = (e) => {
     e.preventDefault();
+    console.log("target", e.target[3].value.name, "e.target", e.target);
 
     const newItem = {
+
         name: e.target[0].value,
         amount: Number(e.target[1].value),
         minNum: Number(e.target[2].value),
+        category: (e.target[3].value) 
+
     }
     this.setState(prevState => ({
         items: [...prevState.items, newItem],
@@ -186,7 +190,7 @@ closeModal = () => {
             <Route exact path="/shoppingList" component={ShoppingListView} />
             <Route exact path="/notes" component={NotesView} />
             </Switch>
-      {isModalOpen && <Modal/> }
+      {isModalOpen && <Modal addItem={this.addItem} onAddShopItem={this.addShopItem} closeModalFn={this.closeModal} /> }
           </>
           
           </BrowserRouter >

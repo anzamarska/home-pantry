@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Button.module.scss';
 
-const Button = ({ children, href, addShopItem }) => (
+const Button = ({ children, href, onAddShopItem }) => (
   <>
     {
       href ? (
@@ -15,7 +15,7 @@ const Button = ({ children, href, addShopItem }) => (
         </a>
       ) : (
           <button className={styles.button} 
-          // onClick={() => addShopItem()}
+          onClick={() => onAddShopItem()}
           >
             {children}
           </button>

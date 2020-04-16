@@ -7,7 +7,7 @@ const Modal = (props) => (
         <Form 
             closeModalFn={props.closeModalFn}
             submitFn={props.addItem}
-            onAddShopItem={props.addShopItem}/>
+            onAddShopItem={props.onAddShopItem}/>
     </div>
 );
 

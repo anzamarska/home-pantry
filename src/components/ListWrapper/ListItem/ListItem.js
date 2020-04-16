@@ -5,6 +5,7 @@ import sweets from '../../../assets/images/categoryIcon/sweets.png'
 import meat from '../../../assets/images/categoryIcon/meat.png'
 import fruits from '../../../assets/images/categoryIcon/fruits.png'
 import vegetables from '../../../assets/images/categoryIcon/vegetables.png'
+import eggs from '../../../assets/images/categoryIcon/eggs.png'
 
 const ListItem = ({
     name,
@@ -22,8 +23,8 @@ const ListItem = ({
                 <span>
                 <img 
                 className={style.categoryImg} 
-                src={category.icon} 
-                alt={category.name}
+                src={category} 
+                // alt={category.name}
                 />
                 </span>
                 <p className={style.name}>{name}</p>

@@ -20,7 +20,7 @@ const ShoppingItem = ({
                     name="amount"
                     placeholder="how many you bought?"
                     type="number"
-                    value={this.state.value}
+                    // value={this.state.value}
                     onChange={(e) => boughtItem(e)}
                  />
                 <button className={style.buttonBought} onClick={() => boughtItem(name)}>bought</button>
