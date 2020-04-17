@@ -11,13 +11,13 @@ import vegetables from '../../assets/images/categoryIcon/vegetables.png';
 console.log("fruits", fruits);
 const fruits1 = {name:"fruits", icon: fruits}
 
-const Form = ({ submitFn, closeModalFn, onAddShopItem } ) => (
+const Form = ({ onAddItem, closeModalFn, onAddShopItem } ) => (
   <div className={styles.wrapper}>
     <button className={styles.button} onClick={closeModalFn}>X</button>
     <Title>new stuff in home</Title>
     <form 
     autoComplete="off"  
-    onSubmit={submitFn}>
+    onAddItem={onAddItem}>
       <Input
         name="name"
         maxLength={30}
@@ -33,31 +33,40 @@ const Form = ({ submitFn, closeModalFn, onAddShopItem } ) => (
         label="how much of this product you would like to have in home?"
         type="number"
       />
-      
-          <div className="radio">
+
+          <div className="radio" >
             <label>
-              <input type="radio" name="category" value={sweets}/>
+              <input 
+              onChange={onAddItem.bind(this)} 
+              type="radio" name="category" value={fruits}/>
               fruits
             </label>
           </div>
-          {/* <div className="radio">
+          <div className="radio">
             <label>
-              <input type="radio" name="category" value.name="vegetables" value.icon: vegetables}} />
-              vegetables
+              <input
+               onChange={onAddItem.bind(this)}
+                type="radio" name="category" value={sweets}/>
+              sweets
             </label>
           </div>
           <div className="radio">
             <label>
-              <input type="radio" name="category" value={{name: "meat", icon: meat}} />
+              <input 
+              onChange={onAddItem.bind(this)} 
+              type="radio" name="category" value={meat}/>
               meat
             </label>
           </div>
           <div className="radio">
             <label>
-              <input type="radio" name="category" value={{name:"sweets", icon: sweets}} />
-              sweets
+              <input 
+              onChange={onAddItem.bind(this)}
+               type="radio" name="category" value={vegetables}/>
+              vegetables
             </label>
-          </div> */}
+          </div>
+    
         
         
       <Button onAddShopItem={onAddShopItem}>add new item</Button>

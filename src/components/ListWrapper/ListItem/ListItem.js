@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './ListItem.module.scss'
-import sweets from '../../../assets/images/categoryIcon/sweets.png'
-import meat from '../../../assets/images/categoryIcon/meat.png'
-import fruits from '../../../assets/images/categoryIcon/fruits.png'
-import vegetables from '../../../assets/images/categoryIcon/vegetables.png'
-import eggs from '../../../assets/images/categoryIcon/eggs.png'
+import sweets from '../../../assets/images/categoryIcon/sweets.png';
+import meat from '../../../assets/images/categoryIcon/meat.png';
+import fruits from '../../../assets/images/categoryIcon/fruits.png';
+import vegetables from '../../../assets/images/categoryIcon/vegetables.png';
+import eggs from '../../../assets/images/categoryIcon/eggs.png';
 
 const ListItem = ({
     name,

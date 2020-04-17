@@ -25,37 +25,37 @@ const initialStuff = [
     },
     {
     name: "potatoes",
-    category: {name: "vegetables", icon: vegetables},
+    category: vegetables,
     amount: 14,
     minNum: 6,
     },
     {
     name: "beef",
-    category: {name: "meat", icon: meat},
+    category: meat,
     amount: 1,
     minNum: 2,
     },
     {
     name: "oranges",
-    category: {name: "fruits", icon: fruits},
+    category: fruits,
     amount: 6,
     minNum: 2,
     },
     {
     name: "eggs",
-    category: {name: "eggs", icon: eggs},
+    category: eggs,
     amount: 5,
     minNum: 10,
     },
     {
     name: "bananas",
-    category: {name: "fruits", icon: fruits},
+    category: fruits,
     amount: 7,
     minNum: 4,
     },
     {
     name: "tomatoes",
-    category: {name: "vegetables", icon: vegetables},
+    category: vegetables,
     amount: 8,
     minNum: 8,
     },
@@ -88,15 +88,20 @@ class Root extends React.Component {
   }
 
 addItem = (e) => {
+
+    // setCategoryValue(e) {
+    //     console.log(e.target.value);
+    //   }
+
     e.preventDefault();
-    console.log("target", e.target[3].value.name, "e.target", e.target);
+    // console.log("target", e.target[3].value.name, "e.target", e.target);
 
     const newItem = {
 
         name: e.target[0].value,
         amount: Number(e.target[1].value),
         minNum: Number(e.target[2].value),
-        category: (e.target[3].value) 
+        category: (e.target.value) 
 
     }
     this.setState(prevState => ({
@@ -105,6 +110,8 @@ addItem = (e) => {
 
     e.target.reset();
 }
+
+
 
 addShopItem = () => {
     this.setState(

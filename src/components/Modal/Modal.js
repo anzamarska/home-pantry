@@ -6,7 +6,7 @@ const Modal = (props) => (
     <div className={styles.wrapper}>
         <Form 
             closeModalFn={props.closeModalFn}
-            submitFn={props.addItem}
+            onAddItem={props.addItem}
             onAddShopItem={props.onAddShopItem}/>
     </div>
 );
