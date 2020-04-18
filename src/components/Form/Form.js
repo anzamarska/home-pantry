@@ -11,7 +11,7 @@ import vegetables from '../../assets/images/categoryIcon/vegetables.png';
 console.log("fruits", fruits);
 const fruits1 = {name:"fruits", icon: fruits}
 
-const Form = ({ onAddItem, closeModalFn, onAddShopItem } ) => (
+const Form = ({ onAddItem, closeModalFn, onAddShopItem, onSubmit } ) => (
   <div className={styles.wrapper}>
     <button className={styles.button} onClick={closeModalFn}>X</button>
     <Title>new stuff in home</Title>
