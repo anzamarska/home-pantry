@@ -17,6 +17,7 @@ const Input = ({tag: Tag, name, label, maxLength}) => (
   </label>
   <div className={styles.formItemBar} />
 </div>
+
 )
 
 Input.propTypes ={

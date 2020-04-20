@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import AppContext from '../../../src/context';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import ListWrapper from '../../components/ListWrapper/ListWrapper';
 import AddStuffView from '../AddStuff/AddStuff';
@@ -84,7 +85,8 @@ class Root extends React.Component {
   state = {
       items: [...initialStuff],
       shopItems: [...initialShopItems],
-      isModalOpen: false,
+      isModalOpen: true,
+      name: "Anianiania",
   }
 
 addItem = (e) => {
@@ -178,7 +180,7 @@ closeModal = () => {
       return (
 
           <BrowserRouter>
-          <>
+          <AppContext.Provider value={this.state.name}>
             <Header openModalFn = {this.openModal}/>
             <ListWrapper 
             items={this.state.items}
@@ -198,7 +200,7 @@ closeModal = () => {
             <Route exact path="/notes" component={NotesView} />
             </Switch>
       {isModalOpen && <Modal addItem={this.addItem} onAddShopItem={this.addShopItem} closeModalFn={this.closeModal} /> }
-          </>
+          </AppContext.Provider>
           
           </BrowserRouter >
       )
