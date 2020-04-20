@@ -1,7 +1,13 @@
 import React from 'react';
+import AppContext from '../../context';
 
 const NotesView = () => (
-    <p>This is add notes viwe</p>
+    <AppContext.Consumer>
+        {(context) => (
+            <p>This is {context}</p>
+        )}
+    
+    </AppContext.Consumer>
 );
 
 export default NotesView;

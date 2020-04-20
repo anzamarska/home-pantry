@@ -36,10 +36,10 @@ class Form extends React.Component {
     // { onAddItem, closeModalFn, onAddShopItem, onSubmit } 
     ) {
     return (
-      <AppContext.Consumer>
+      // <AppContext.Consumer>
 
         
-      </AppContext.Consumer>
+      // </AppContext.Consumer>
         <div className={styles.wrapper}>
           <button className={styles.button} onClick={this.props.closeModalFn}>X</button>
           <Title>new stuff in home</Title>

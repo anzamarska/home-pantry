@@ -180,7 +180,7 @@ closeModal = () => {
       return (
 
           <BrowserRouter>
-          <AppContext.Provider value={this.state.name}>
+          <AppContext.Provider value={this.state}>
             <Header openModalFn = {this.openModal}/>
             <ListWrapper 
             items={this.state.items}
