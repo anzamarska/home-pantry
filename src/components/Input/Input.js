@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './Input.module.scss';
 
 
-const Input = ({tag: Tag, name, label, maxLength}) => (
+const Input = ({tag: Tag, name, label, maxLength, ...props}) => (
 
 <div className={styles.formItem}>
   <Tag
@@ -12,6 +12,7 @@ const Input = ({tag: Tag, name, label, maxLength}) => (
     name={name}
     id={name}
     maxLength={maxLength}
+    {...props}
   />
   <label className={styles.label} htmlFor={name}>{label}
   </label>

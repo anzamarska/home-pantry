@@ -14,7 +14,8 @@ const Button = ({ children, href, onAddShopItem }) => (
           {children}
         </a>
       ) : (
-          <button className={styles.button} 
+          <button 
+          className={styles.button} 
           onClick={() => onAddShopItem()}
           >
             {children}

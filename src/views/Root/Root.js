@@ -33,7 +33,7 @@ const initialStuff = [
     {
     name: "beef",
     category: meat,
-    amount: 1,
+    amount: 3,
     minNum: 2,
     },
     {
@@ -45,7 +45,7 @@ const initialStuff = [
     {
     name: "eggs",
     category: eggs,
-    amount: 5,
+    amount: 11,
     minNum: 10,
     },
     {
@@ -62,22 +62,6 @@ const initialStuff = [
     },
     ];
 
-// const categories = [
-//         {
-//           name: 'fruits',
-//           icon: fruits
-//         },
-//         {
-//           name: 'sweet',
-//           src: pie
-//         },
-//         {
-//           name: 'milk',
-//           src: jug
-//         }
-//       ];
-  
-
 const initialShopItems = []
  
 class Root extends React.Component {
@@ -86,31 +70,26 @@ class Root extends React.Component {
       items: [...initialStuff],
       shopItems: [...initialShopItems],
       isModalOpen: true,
-      name: "Anianiania",
   }
 
-addItem = (e) => {
-
-    // setCategoryValue(e) {
-    //     console.log(e.target.value);
-    //   }
+addItem = (e, newItem) => {
 
     e.preventDefault();
-    // console.log("target", e.target[3].value.name, "e.target", e.target);
+    console.log("its works!!");
 
-    const newItem = {
+    // const newItem = {
 
-        name: e.target[0].value,
-        amount: Number(e.target[1].value),
-        minNum: Number(e.target[2].value),
-        category: (e.target.value) 
+    //     name: e.target[0].value,
+    //     amount: Number(e.target[1].value),
+    //     minNum: Number(e.target[2].value),
+    //     category: (e.target.value) 
 
-    }
-    this.setState(prevState => ({
-        items: [...prevState.items, newItem],
-    }));
+    // }
+    // this.setState(prevState => ({
+    //     items: [...prevState.items, newItem],
+    // }));
 
-    e.target.reset();
+    // e.target.reset();
 }
 
 
@@ -176,11 +155,15 @@ closeModal = () => {
 
   render() {
       const { isModalOpen } = this.state;
+      const contextElements = {
+          ...this.state,
+          addItem: this.addItem,
+      }
 
       return (
 
           <BrowserRouter>
-          <AppContext.Provider value={this.state}>
+          <AppContext.Provider value={contextElements}>
             <Header openModalFn = {this.openModal}/>
             <ListWrapper 
             items={this.state.items}
