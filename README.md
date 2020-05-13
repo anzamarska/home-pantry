@@ -17,7 +17,7 @@ Project is created with:
 
 ## Deploying / Publishing
 
-https://confident-northcutt-f340ff.netlify.app
+https://tender-wilson-cfe0ac.netlify.app/
 
 ## Available Scripts
 
