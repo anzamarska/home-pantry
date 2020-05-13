@@ -1,79 +1,76 @@
-import React from 'react';
-import './index.css';
-import AppContext from '../../../src/context';
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
-import ListWrapper from '../../components/ListWrapper/ListWrapper';
-import AddStuffView from '../AddStuff/AddStuff';
-import NotesView from '../Notes/Notes';
-import ShoppingListView from '../ShoppingList/ShoppingList';
-import Header from '../../components/Header/Header'
-import HomePageView from '../HomePage/HomePage';
-import ShoppingList from '../../components/ShoppingList/ShoppingListWrapper';
-import Modal from '../../components/Modal/Modal';
-import sweets from '../../assets/images/categoryIcon/sweets.png'
-import eggs from '../../assets/images/categoryIcon/eggs.png'
-import meat from '../../assets/images/categoryIcon/meat.png'
-import fruits from '../../assets/images/categoryIcon/fruits.png'
-import vegetables from '../../assets/images/categoryIcon/vegetables.png'
+import React from "react";
+import "./index.css";
+import AppContext from "../../../src/context";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import ListWrapper from "../../components/ListWrapper/ListWrapper";
+import AddStuffView from "../AddStuff/AddStuff";
+import NotesView from "../Notes/Notes";
+import ShoppingListView from "../ShoppingList/ShoppingList";
+import Header from "../../components/Header/Header";
+import HomePageView from "../HomePage/HomePage";
+import ShoppingList from "../../components/ShoppingList/ShoppingListWrapper";
+import Modal from "../../components/Modal/Modal";
+import sweets from "../../assets/images/categoryIcon/sweets.png";
+import eggs from "../../assets/images/categoryIcon/eggs.png";
+import meat from "../../assets/images/categoryIcon/meat.png";
+import fruits from "../../assets/images/categoryIcon/fruits.png";
+import vegetables from "../../assets/images/categoryIcon/vegetables.png";
 
-
-const initialStuff = [ 
-    {
+const initialStuff = [
+  {
     name: "chocolates",
     category: sweets,
     amount: 6,
     minNum: 6,
-    },
-    {
+  },
+  {
     name: "potatoes",
     category: vegetables,
     amount: 14,
     minNum: 6,
-    },
-    {
+  },
+  {
     name: "beef",
     category: meat,
     amount: 3,
     minNum: 2,
-    },
-    {
+  },
+  {
     name: "oranges",
     category: fruits,
     amount: 6,
     minNum: 2,
-    },
-    {
+  },
+  {
     name: "eggs",
     category: eggs,
     amount: 11,
     minNum: 10,
-    },
-    {
+  },
+  {
     name: "bananas",
     category: fruits,
     amount: 7,
     minNum: 4,
-    },
-    {
+  },
+  {
     name: "tomatoes",
     category: vegetables,
     amount: 8,
     minNum: 8,
-    },
-    ];
+  },
+];
 
-const initialShopItems = []
- 
+const initialShopItems = [];
+
 class Root extends React.Component {
-
   state = {
-      items: [...initialStuff],
-      shopItems: [...initialShopItems],
-      isModalOpen: true,
-  }
+    items: [...initialStuff],
+    shopItems: [...initialShopItems],
+    isModalOpen: true,
+  };
 
-addItem = (e, newItem) => {
-
+  addItem = (e, newItem) => {
     e.preventDefault();
     console.log("its works!!");
 
@@ -82,7 +79,7 @@ addItem = (e, newItem) => {
     //     name: e.target[0].value,
     //     amount: Number(e.target[1].value),
     //     minNum: Number(e.target[2].value),
-    //     category: (e.target.value) 
+    //     category: (e.target.value)
 
     // }
     // this.setState(prevState => ({
@@ -90,104 +87,136 @@ addItem = (e, newItem) => {
     // }));
 
     // e.target.reset();
-}
+  };
 
+  addShopItem = () => {
+    this.setState((state, props) => {
+      const filteredList = state.items.filter(
+        (item) => item.amount - item.minNum < 0
+      );
+      const newShopItems = filteredList.map((item) => ({
+        name: item.name,
+        desireAmount: item.minNum - item.amount,
+      }));
+      return { shopItems: newShopItems };
+    });
+  };
 
-
-addShopItem = () => {
-    this.setState(
-      (state, props) => {
-        const filteredList = state.items.filter(item => item.amount - item.minNum < 0);
-        const newShopItems = filteredList.map(item => ({name: item.name, desireAmount: item.minNum - item.amount}))
-        return {shopItems: newShopItems}
-      })
-}
-
-subAmount = (name) => {
-    this.setState({items: this.state.items.map(item => item.name === name ? {...item, amount: item.amount - 1} : item)});
-}
-
-addAmount = (name) => {
-    console.log(name);
-    this.setState({items: this.state.items.map(item => item.name === name ? {...item, amount: item.amount + 1} : item)});
-}
-
-onConfirmDelete = (name) => {
-    let confirmation = window.confirm("Are you sure you want to remove this product from your list?");
-
-    if (confirmation === true){ 
-    this.setState({items: this.state.items.filter(
-        (item) => {
-            return item.name !== name;
-        })}) 
-        }
-}
-
-// addCategory = (name) => {
-//     this.setState({items: this.state.items.map(item => item.name === name ? )})
-// }
-
-boughtItem = (name) => {
-    this.setState({shopItems: this.state.shopItems.filter(
-        (item) => {
-            return item.name !== name;
-        })}) 
-    this.setState({items: this.state.items.map(item => item.name === name ? {...item, amount: item.amount 
-        // + e.target.value
-        
-    } : item)});
-}
-
-openModal = () => {
-  
+  subAmount = (name) => {
     this.setState({
-        isModalOpen: true,
-    })
-}
+      items: this.state.items.map((item) =>
+        item.name === name ? { ...item, amount: item.amount - 1 } : item
+      ),
+    });
+  };
 
-closeModal = () => {
+  addAmount = (name) => {
+    console.log(name);
+    this.setState({
+      items: this.state.items.map((item) =>
+        item.name === name ? { ...item, amount: item.amount + 1 } : item
+      ),
+    });
+  };
+
+  onConfirmDelete = (name) => {
+    let confirmation = window.confirm(
+      "Are you sure you want to remove this product from your list?"
+    );
+
+    if (confirmation === true) {
+      this.setState({
+        items: this.state.items.filter((item) => {
+          return item.name !== name;
+        }),
+      });
+    }
+  };
+
+  // addCategory = (name) => {
+  //     this.setState({items: this.state.items.map(item => item.name === name ? )})
+  // }
+
+  boughtItem = (name) => {
+    this.setState({
+      shopItems: this.state.shopItems.filter((item) => {
+        return item.name !== name;
+      }),
+    });
+    this.setState({
+      items: this.state.items.map((item) =>
+        item.name === name
+          ? {
+              ...item,
+              amount: item.amount,
+              // + e.target.value
+            }
+          : item
+      ),
+    });
+  };
+
+  openModal = () => {
+    this.setState({
+      isModalOpen: true,
+    });
+  };
+
+  closeModal = () => {
     console.log("fdsf");
     this.setState({
-        isModalOpen: false,
-    })
-}
-
+      isModalOpen: false,
+    });
+  };
 
   render() {
-      const { isModalOpen } = this.state;
-      const contextElements = {
-          ...this.state,
-          addItem: this.addItem,
-      }
+    const { isModalOpen } = this.state;
+    const contextElements = {
+      ...this.state,
+      addItem: this.addItem,
+    };
 
-      return (
-
-          <BrowserRouter>
-          <AppContext.Provider value={contextElements}>
-            <Header openModalFn = {this.openModal}/>
-            <ListWrapper 
+    return (
+      <BrowserRouter>
+        <AppContext.Provider value={contextElements}>
+          <Header openModalFn={this.openModal} />
+          <ListWrapper
             items={this.state.items}
             onAddAmount={this.addAmount}
             onSubAmount={this.subAmount}
             onConfirmDelete={this.onConfirmDelete}
             onAddShopItem={this.addShopItem}
-            /> 
-            <ShoppingList 
+          />
+          <ShoppingList
             shopItems={this.state.shopItems}
             boughtItem={this.boughtItem}
-            />
-        <Switch>
+          />
+          <Switch>
             <Route exact path="/" component={HomePageView} />
-            <Route exact path="/addStuff" component={() => <AddStuffView addItem={this.addItem} onAddShopItem={this.addShopItem} closeModalFn={this.closeModal} />} />
+            <Route
+              exact
+              path="/addStuff"
+              component={() => (
+                <AddStuffView
+                  addItem={this.addItem}
+                  onAddShopItem={this.addShopItem}
+                  closeModalFn={this.closeModal}
+                />
+              )}
+            />
             <Route exact path="/shoppingList" component={ShoppingListView} />
             <Route exact path="/notes" component={NotesView} />
-            </Switch>
-      {isModalOpen && <Modal addItem={this.addItem} onAddShopItem={this.addShopItem} closeModalFn={this.closeModal} /> }
-          </AppContext.Provider>
-          
-          </BrowserRouter >
-      )
+          </Switch>
+          {isModalOpen && (
+            <Modal
+              addItem={this.addItem}
+              onAddShopItem={this.addShopItem}
+              closeModalFn={this.closeModal}
+            />
+          )}
+        </AppContext.Provider>
+      </BrowserRouter>
+    );
   }
-
 }
 export default Root;
