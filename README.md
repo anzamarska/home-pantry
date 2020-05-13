@@ -1,4 +1,19 @@
+# Home Pantry
+
+## General info
+
+This application allows the user to summarize the amount of food products stored at home. It allows to add / subtract their quantity, and when its level drops below the expected, it automatically generates a shopping list.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Technologies
+
+Project is created with:
+
+- CSS5 (Sass)
+- HTML5
+- JavaScript
+- React
 
 ## Available Scripts
 
@@ -66,4 +81,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# react-eduweb-task1
