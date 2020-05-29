@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./HeaderNavigation.module.scss";
 
-const HeaderNavigation = () => (
+const HeaderNavigation = (props) => (
   <nav>
     <ul className={styles.wrapper}>
       <li className={styles.navigationItem}>
@@ -21,6 +21,7 @@ const HeaderNavigation = () => (
           activeClassName={styles.navigationItemLinkActive}
           className={styles.navigationItemLink}
           to="/addStuff"
+          onClick={props.openModalFn}
         >
           Add New Stuff
         </NavLink>
