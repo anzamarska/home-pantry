@@ -4,7 +4,6 @@ import AppContext from "../../../src/context";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ListWrapper from "../../components/ListWrapper/ListWrapper";
 import AddStuffView from "../AddStuff/AddStuff";
-import NotesView from "../Notes/Notes";
 import ShoppingListView from "../ShoppingList/ShoppingList";
 import Header from "../../components/Header/Header";
 import HomePageView from "../HomePage/HomePage";
@@ -205,7 +204,6 @@ class Root extends React.Component {
               )}
             />
             <Route exact path="/shoppingList" component={ShoppingListView} />
-            <Route exact path="/notes" component={NotesView} />
           </Switch>
           {isModalOpen && (
             <Modal
