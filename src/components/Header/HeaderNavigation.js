@@ -36,16 +36,6 @@ const HeaderNavigation = (props) => (
           Shopping List
         </NavLink>
       </li>
-      <li className={styles.navigationItem}>
-        <NavLink
-          activeClassName={styles.navigationItemLinkActive}
-          className={styles.navigationItemLink}
-          to="/notes"
-        >
-          {" "}
-          Notes View
-        </NavLink>
-      </li>
     </ul>
   </nav>
 );

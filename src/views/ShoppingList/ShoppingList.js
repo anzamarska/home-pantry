@@ -1,7 +1,9 @@
-import React from 'react';
+import React from "react";
+import ShoppingList from "../../components/ShoppingList/ShoppingListWrapper";
 
-const ShoppingListView = () => (
-    <p>This is add shopping view</p>
+const ShoppingListView = (props) => (
+  // <p>This is add shopping view</p>
+  <ShoppingList shopItems={props.shopItems} boughtItem={props.boughtItem} />
 );
 
 export default ShoppingListView;

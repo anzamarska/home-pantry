@@ -186,10 +186,10 @@ class Root extends React.Component {
             onConfirmDelete={this.onConfirmDelete}
             onAddShopItem={this.addShopItem}
           />
-          <ShoppingList
+          {/* <ShoppingList
             shopItems={this.state.shopItems}
             boughtItem={this.boughtItem}
-          />
+          /> */}
           <Switch>
             <Route exact path="/" component={HomePageView} />
             <Route
@@ -203,7 +203,16 @@ class Root extends React.Component {
                 />
               )}
             />
-            <Route exact path="/shoppingList" component={ShoppingListView} />
+            <Route
+              exact
+              path="/shoppingList"
+              component={() => (
+                <ShoppingListView
+                  shopItems={this.state.shopItems}
+                  boughtItem={this.boughtItem}
+                />
+              )}
+            />
           </Switch>
           {isModalOpen && (
             <Modal
