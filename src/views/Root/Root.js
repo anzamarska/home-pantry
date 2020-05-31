@@ -162,7 +162,7 @@ class Root extends React.Component {
   };
 
   closeModal = () => {
-    console.log("fdsf");
+    console.log("close modal");
     this.setState({
       isModalOpen: false,
     });
@@ -178,20 +178,32 @@ class Root extends React.Component {
     return (
       <BrowserRouter>
         <AppContext.Provider value={contextElements}>
-          <Header openModalFn={this.openModal} />
-          <ListWrapper
+          <Header openModalFn={this.openModal} closeModalFn={this.closeModal} />
+          {/* <ListWrapper
             items={this.state.items}
             onAddAmount={this.addAmount}
             onSubAmount={this.subAmount}
             onConfirmDelete={this.onConfirmDelete}
             onAddShopItem={this.addShopItem}
-          />
-          {/* <ShoppingList
+          /> */}
+          {/* <ShoppingListView
             shopItems={this.state.shopItems}
             boughtItem={this.boughtItem}
           /> */}
           <Switch>
-            <Route exact path="/" component={HomePageView} />
+            <Route
+              exact
+              path="/"
+              component={() => (
+                <HomePageView
+                  items={this.state.items}
+                  onAddAmount={this.addAmount}
+                  onSubAmount={this.subAmount}
+                  onConfirmDelete={this.onConfirmDelete}
+                  onAddShopItem={this.addShopItem}
+                />
+              )}
+            />
             <Route
               exact
               path="/addStuff"
