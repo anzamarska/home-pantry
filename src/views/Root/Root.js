@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.css";
+import "../../styles/global.scss";
 import AppContext from "../../../src/context";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ListWrapper from "../../components/ListWrapper/ListWrapper";

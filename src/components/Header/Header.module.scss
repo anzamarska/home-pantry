@@ -1,14 +1,21 @@
-.wrapper{
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    align-items: center;
-    margin-top: 20px;
-    padding: 20px 30px;
+@import "../../styles/global.scss";
 
+.wrapper {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px 30px;
+  @include media("<=phone") {
+    padding: 0;
+  }
 }
 
-.logo{
-    width: 110px;
-    height: 110px;
-    padding-right: 10px;
-    }
+.logo {
+  width: 110px;
+  height: 110px;
+  padding-right: 10px;
+  @include media("<=phone") {
+    display: none;
+  }
+}

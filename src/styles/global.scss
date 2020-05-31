@@ -1,0 +1,17 @@
+@import "./breakpoints.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  @include media("<=phone") {
+    font-size: 14px;
+  }
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  max-width: 100vw;
+}
