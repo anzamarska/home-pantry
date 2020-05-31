@@ -10,6 +10,7 @@ const HeaderNavigation = (props) => (
           exact
           activeClassName={styles.navigationItemLinkActive}
           className={styles.navigationItemLink}
+          onClick={props.openModalFn}
           to="/"
         >
           {" "}
@@ -20,8 +21,8 @@ const HeaderNavigation = (props) => (
         <NavLink
           activeClassName={styles.navigationItemLinkActive}
           className={styles.navigationItemLink}
+          onClick={props.closeModalFn}
           to="/addStuff"
-          onClick={props.openModalFn}
         >
           Add New Stuff
         </NavLink>
@@ -30,6 +31,7 @@ const HeaderNavigation = (props) => (
         <NavLink
           activeClassName={styles.navigationItemLinkActive}
           className={styles.navigationItemLink}
+          onClick={props.closeModalFn}
           to="/shoppingList"
         >
           {" "}
