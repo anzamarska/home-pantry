@@ -1,12 +1,15 @@
-import React from 'react';
-import Form from '../../components/Form/Form';
-
+import React from "react";
+import styles from "./AddStuff.module.scss";
+import Form from "../../components/Form/Form";
 
 const AddStuffView = (props) => (
-    <Form 
-    closeModalFn={props.closeModalFn}
-    submitFn={props.addItem}
-    onAddShopItem={props.addShopItem}/>
+  <div className={styles.wrapper}>
+    <Form
+      closeModalFn={props.closeModalFn}
+      onAddItem={props.addItem}
+      onAddShopItem={props.onAddShopItem}
+    />
+  </div>
 );
 
 export default AddStuffView;
