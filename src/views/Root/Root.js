@@ -16,7 +16,7 @@ import meat from "../../assets/images/categoryIcon/meat.png";
 import fruits from "../../assets/images/categoryIcon/fruits.png";
 import vegetables from "../../assets/images/categoryIcon/vegetables.png";
 
-const initialStuff = [
+let initialStuff = [
   {
     name: "chocolates",
     category: sweets,
@@ -74,17 +74,15 @@ class Root extends React.Component {
     e.preventDefault();
     console.log("its works!!");
 
-    // const newItem = {
-
-    //     name: e.target[0].value,
-    //     amount: Number(e.target[1].value),
-    //     minNum: Number(e.target[2].value),
-    //     category: (e.target.value)
-
-    // }
-    // this.setState(prevState => ({
-    //     items: [...prevState.items, newItem],
-    // }));
+    const newUserItem = {
+      name: e.target[0].value,
+      amount: Number(e.target[1].value),
+      minNum: Number(e.target[2].value),
+      category: e.target.value,
+    };
+    this.setState((prevState) => ({
+      items: [...prevState.items, newUserItem],
+    }));
 
     // e.target.reset();
   };
