@@ -17,7 +17,7 @@ Project is created with:
 
 ## Deploying / Publishing
 
-https://tender-wilson-cfe0ac.netlify.app/
+https://homepantry.netlify.app/
 
 ## Available Scripts
 
