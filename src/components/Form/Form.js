@@ -31,12 +31,12 @@ class Form extends React.Component {
 
   handleRadioButtonChange = (e) => {
     this.setState({
-      [e.target.name]: e.targetvalue,
+      [e.target.name]: e.target.value,
     });
   };
 
   render() {
-  // { onAddItem, closeModalFn, onAddShopItem, onSubmit }
+    // { onAddItem, closeModalFn, onAddShopItem, onSubmit }
     return (
       <AppContext.Consumer>
         {(context) => (
