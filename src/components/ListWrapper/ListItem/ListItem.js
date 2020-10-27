@@ -53,7 +53,7 @@ const ListItem = ({
           className={style.buttonDelete}
           onClick={() => {
             onConfirmDelete(name);
-            onAddShopItem(amount, minNum);
+            // onAddShopItem(amount, minNum);
           }}
         >
           delete
